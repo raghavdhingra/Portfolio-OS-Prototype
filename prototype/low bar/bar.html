@@ -25,19 +25,19 @@
 
         @media (min-width: 768px) {
             .container {
-            width: 750px;
+                width: 750px;
             }
         }
 
         @media (min-width: 992px) {
             .container {
-            width: 970px;
+                width: 970px;
             }
         }
 
         @media (min-width: 1200px) {
             .container {
-            width: 1170px;
+                width: 1170px;
             }
         }
 
@@ -92,8 +92,17 @@
         }
         .start-content{
             position: absolute;
+            top: 50px;
+            width: 100%;
+            bottom: 50px;
             z-index: 12;
             color: white;
+            opacity: 0;
+            animation: rotd 0.5s 1 0.3s forwards ease;
+        }
+        @keyframes rotd {
+            0%{transform: scale(0.8);opacity: 0;}
+            100%{transform: scale(1);opacity: 1;}
         }
         @keyframes opac{
             from{opacity: 0;}
@@ -110,6 +119,11 @@
         #start-circle{
             margin: 0 2px;
         }
+        .box{
+            height: 100px;
+            width: 100px;
+            background: red;
+        }
     </style>
 
     <style>
@@ -123,7 +137,11 @@
     <div class="start-menu" id="startMenu">
     <!-- <div class="start-menu none" id="startMenu"> -->
         <div class="blurred"></div>
-        <div class="start-content">hi</div>
+        <div class="start-content">
+            <div class="container" id="start-menu-con">
+                <div class="box"></div>
+            </div>
+        </div>
     </div>
 
     <div class="task-bar">
