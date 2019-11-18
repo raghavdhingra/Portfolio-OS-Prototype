@@ -22,6 +22,7 @@
             right: 0;
             background: rgba(0,0,0,0.45);
             color: aliceblue;
+            z-index: 13;
         }
         .start-icon{
             transition: 0.2s;
@@ -32,7 +33,6 @@
             fill: rgba(0,0,0,0);
             stroke: white;
             stroke-width: 5px;
-            stroke-dasharray: 100 10;
             transition: 0.2s;
         }
         .start-icon:hover{
@@ -47,18 +47,84 @@
             50%{stroke-width: 8px;}
             100%{stroke-width: 5px;}
         }
-        
+
+        .start-menu{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 10;
+        }
+        .blurred{
+            z-index: 11;
+            animation: opac 1s forwards 1 linear;
+            background: rgba(0,0,0,0.6);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        .start-content{
+            position: absolute;
+            z-index: 12;
+            color: white;
+        }
+        @keyframes opac{
+            from{opacity: 0;}
+            to{opacity: 1;}
+        }
+        .stroke{
+            stroke-dasharray: 2 5 5 5;
+            animation: strokeanim 1s ease infinite;
+        }
+        @keyframes strokeanim {
+            0%{transform: rotate(0);}
+            100%{transform: rotate(360deg);}
+        }
+        #start-circle{
+            margin: 0 2px;
+        }
+    </style>
+
+    <style>
+        .none{
+            display: none;
+        }
     </style>
 </head>
 <body>
     
+    <div class="start-menu" id="startMenu">
+    <!-- <div class="start-menu none" id="startMenu"> -->
+        <div class="blurred"></div>
+        <div class="start-content">hi</div>
+    </div>
+
     <div class="task-bar">
-        <div class="start-icon">
-            <svg height="50" width="50">
-                <circle class="start-circle" r="15" cx="27" cy="27" />
+        <div class="start-icon" onclick="openStart();">
+            <svg id="start-circle" height="50" width="50">
+                <circle class="start-circle" r="15" cx="25" cy="25" />
             </svg>
         </div>
     </div>
+
+
+    <script>
+        var startCounter = 0;
+        const openStart = () => {
+            if (startCounter == 0) {
+                document.getElementById("startMenu").classList.remove("none");
+                document.getElementById("start-circle").classList.add("stroke");
+                startCounter=1;
+            }
+            else{
+                document.getElementById("startMenu").classList.add("none");
+                document.getElementById("start-circle").classList.remove("stroke");
+                startCounter=0;
+            }
+        }
+
+    </script>
 
 </body>
 </html>
