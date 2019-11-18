@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lower Bar</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            overflow: hidden;
+            background: url('./background.jpg');
+        }
+        .task-bar{
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.45);
+            color: aliceblue;
+        }
+        .start-icon{
+            transition: 0.2s;
+            width: 54px;
+        }
+        
+        .start-circle{
+            fill: rgba(0,0,0,0);
+            stroke: white;
+            stroke-width: 5px;
+            stroke-dasharray: 100 10;
+            transition: 0.2s;
+        }
+        .start-icon:hover{
+            background: rgba(255,255,255,0.15);
+        }
+        .start-icon:hover .start-circle{
+            stroke: rgb(187,134,252);
+            animation: expand 1s infinite ease;
+        }
+        @keyframes expand {
+            0%{stroke-width: 5px;}
+            50%{stroke-width: 8px;}
+            100%{stroke-width: 5px;}
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="task-bar">
+        <div class="start-icon">
+            <svg height="50" width="50">
+                <circle class="start-circle" r="15" cx="27" cy="27" />
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>
