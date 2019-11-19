@@ -325,6 +325,50 @@
         </div>
     </div>
 
+    <div class="task-bar">
+        <div class="start-icon" onclick="openStart();">
+            <svg id="start-circle" height="50" width="50">
+                <circle class="start-circle" r="15" cx="25" cy="25" />
+            </svg>
+        </div>
+    </div>
+
+
+    <script>
+        var startCounter = 0;
+        const openStart = () => {
+            if (startCounter == 0) {
+                document.getElementById("startMenu").classList.remove("none");
+                document.getElementById("scrollBtn").classList.remove("none");
+                document.getElementById("start-circle").classList.add("stroke");
+                startCounter=1;
+            }
+            else{
+                document.getElementById("startMenu").classList.add("none");
+                document.getElementById("start-circle").classList.remove("stroke");
+                startCounter=0;
+            }
+        }
+
+        const keyPress = (e) => {
+            if(e.key === "Escape") {
+                document.getElementById("startMenu").classList.add("none");
+                document.getElementById("start-circle").classList.remove("stroke");
+                document.getElementById("scrollBtn").style.display='block';
+                startCounter=0;
+            }
+        }
+        document.getElementById("scroll").addEventListener("scroll",()=>{
+            document.getElementById("scrollBtn").classList.add("none");
+        });
+        document.getElementById("scrollBtn").addEventListener("click",()=>{
+            document.getElementById("scrollBtn").classList.add("none");
+            document.getElementById("scroll").scrollLeft="100";
+            setTimeout(()=>{
+                document.getElementById("scroll").scrollLeft="-100";
+            },400);
+        });
+        document.onkeydown = keyPress;
     </script>
 
 </body>
