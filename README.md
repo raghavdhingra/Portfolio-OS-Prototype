@@ -1,2 +1,4 @@
 # Portfolio-OS
-This is an Operating System. Stay Tuned.
+
+Initialising the revolutionary Operating System.
+Stay Tuned.
