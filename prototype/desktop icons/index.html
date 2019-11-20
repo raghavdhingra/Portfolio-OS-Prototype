@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desktop Icons</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        body{
+            cursor: default;
+            overflow: hidden;
+        }
+        .desktop-icons{
+            width: max-content;
+            text-align: center;
+            display: flexbox;
+            padding: 0.5em;
+            background: rgba(0, 0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+            box-sizing: border-box;
+            border-radius: 1px;
+            transition: 0.08s;
+        }
+        .desktop-icons:hover{
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .desktop-icons:active{
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        .desktop-container{
+            /* width: 100%; */
+            overflow: hidden;
+            height: 98vh;
+            margin: 1vh 1em;
+        }
+        .upper-bar{
+            /* width: 100vw; */
+            padding: 0.5em;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        @media screen and (min-width: 800px){
+            .upper-bar{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body background="background.jpg">
+    <div class="upper-bar" id="upper-bar"> 9:30am </div>
+    <div class="desktop-container">
+        <div class="desktop-icons">
+            <img src="./icons/resume.svg" width="60px" />
+            <Br>
+            Resume
+        </div>
+        <div class="desktop-icons">
+            <img src="./icons/project.svg" width="60px" />
+            <Br>
+            Projects
+        </div>
+        <div class="desktop-icons">
+            <img src="./icons/folder1.svg" width="60px" />
+            <Br>
+            Personal
+        </div>
+        <div class="desktop-icons">
+            <img src="./icons/browser.svg" width="60px" />
+            <Br>
+            Browser
+        </div>
+        <div class="desktop-icons">
+            <img src="./icons/setting1.svg" width="60px" />
+            <Br>
+            Settings
+        </div>
+    </div>
+
+    <script>
+    
+        const upperBar = document.getElementById("upper-bar");
+        const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        window.onload = () => {
+            var date = new Date();
+            upperBar.innerHTML = `${date.getHours()}:${date.getMinutes()} &nbsp;&nbsp;&nbsp; ${month[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+            setInterval(
+                ()=>{
+                    var date = new Date();
+                    upperBar.innerHTML = `${date.getHours()}:${date.getMinutes()} &nbsp;&nbsp;&nbsp; ${month[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+                }
+                ,30000
+            );
+        }
+
+    </script>
+
+</body>
+</html>
