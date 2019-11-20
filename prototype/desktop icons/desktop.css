@@ -1,0 +1,36 @@
+.desktop-icons{
+    width: max-content;
+    text-align: center;
+    display: flexbox;
+    padding: 0.5em;
+    background: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    border-radius: 1px;
+    transition: 0.08s;
+}
+.desktop-icons:hover{
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+.desktop-icons:active{
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+.desktop-container{
+    /* width: 100%; */
+    overflow: hidden;
+    height: 98vh;
+    margin: 1vh 1em;
+}
+.upper-bar{
+    /* width: 100vw; */
+    padding: 0.5em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+}
+@media screen and (min-width: 800px){
+    .upper-bar{
+        display: none;
+    }
+}
