@@ -15,7 +15,7 @@
 
 <body background="background.jpg">
 
-    <div class="explorer none" id="explorer">
+    <div class="explorer" id="explorer">
         <div class="title-bar">
             <div class="title-icon cross" id="close-explorer"> &nbsp;<i class="fas fa-times"></i></div>
             <div class="title-icon" id="maximize">&nbsp;<i class="fas fa-window-maximize"></i></div>
@@ -23,8 +23,29 @@
             <span>File Explorer</span>
             <div class="explorer-title" id="explorer-title"></div>
         </div>
-        <div class="explorer-content">
-            hi
+        <div class="explorer-content" id="explorer-content">
+
+            <div id="profile-content" class="none">
+                Profile
+            </div>
+
+            <div id="project-content" class="none">
+                Project
+            </div>
+
+            <div id="personal-content" class="none">
+                Personal
+            </div>
+
+            <div id="browser-content" class="none">
+                <i class="fa fa-search"></i><input type="text" class="url-bar" id="url-bar" placeholder="Search..."/><button class="search" id="searchBtn">Go</button>
+                <iframe id="iframe" src="https://www.searchencrypt.com/?ptc=://mail" class="explorer-frame"></iframe>
+            </div>
+            
+            <div id="setting-content" class="none">
+                Settings
+            </div>
+
         </div>
     </div>
 
