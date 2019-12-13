@@ -1,0 +1,136 @@
+.task-bar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.45);
+    color: aliceblue;
+    z-index: 13;
+}
+.start-icon{
+    transition: 0.2s;
+    width: 54px;
+}
+
+.start-circle{
+    fill: rgba(0,0,0,0);
+    stroke: white;
+    stroke-width: 5px;
+    transition: 0.2s;
+}
+.start-icon:hover{
+    background: rgba(255,255,255,0.15);
+}
+.start-icon:hover .start-circle{
+    stroke: rgb(187,134,252);
+    animation: expand 1s infinite ease;
+}
+@keyframes expand {
+    0%{stroke-width: 5px;}
+    50%{stroke-width: 8px;}
+    100%{stroke-width: 5px;}
+}
+
+.start-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+.blurred{
+    z-index: 11;
+    animation: opac 1s forwards 1 linear;
+    background: rgba(0,0,0,0.6);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.start-content{
+    position: absolute;
+    overflow: scroll;
+    top: 20px;
+    width: 100%;
+    bottom: 50px;
+    z-index: 12;
+    color: white;
+    opacity: 0;
+    animation: rotd 0.5s 1 0.3s forwards ease;
+}
+.start-content::-webkit-scrollbar{
+    width: 0;
+}
+@keyframes rotd {
+    0%{transform: scale(0.8);opacity: 0;}
+    100%{transform: scale(1);opacity: 1;}
+}
+@keyframes opac{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+.stroke{
+    stroke-dasharray: 2 5 5 5;
+    animation: strokeanim 1s ease infinite;
+}
+@keyframes strokeanim {
+    0%{transform: rotate(0);}
+    100%{transform: rotate(360deg);}
+}
+#start-circle{
+    margin: 0 2px;
+}
+.box,.right-pointer{
+    height: 100px;
+    width: 100px;
+    margin: 0.2em 0.1em;
+    cursor: default;
+    padding: 1em;
+    border: 0.1em solid rgba(255, 255, 255, 0);
+    display: inline-flex;
+    background: #1a73e8;
+    transition: 0.2s;
+    box-sizing: border-box !important;
+}
+.box:hover{
+    border: 0.1em solid white;
+    transform: scale(1.05);
+}
+.box:active{
+    transform: scale(0.95);
+}
+.box div,.right-pointer div{
+    width: 100%;
+}
+.box div center i,.right-pointer div center i{
+    font-size: 2.5em;
+}
+.box div center div,.right-pointer div center div{
+    margin: 0.8em 0;
+}
+.con-inner{
+    padding: 1.5em;
+    width: max-content;
+}
+.start-subhead{
+    margin: 1em 2em 0 2em;
+}
+@media screen and (max-width: 800px){
+    .start-subhead{
+        margin: 1em;
+    }
+    .con-inner{
+        padding: 0.5em;
+    }
+    .scroll{
+        overflow-x: scroll;
+    }
+    .scroll::-webkit-scrollbar{
+        width: 0;
+    }
+}
+@media screen and (min-width: 560px){
+    .right-pointer{
+        display: none !important;
+    }
+}

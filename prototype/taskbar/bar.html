@@ -4,214 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Task Bar</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        a{
-            color: white;
-            text-decoration: none;
-        }
-        body{
-            background: url('./background.jpg');
-        }
-
-        .container {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                width: 750px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .container {
-                width: 970px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .container {
-                width: 1170px;
-            }
-        }
-
-        .task-bar{
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.45);
-            color: aliceblue;
-            z-index: 13;
-        }
-        .start-icon{
-            transition: 0.2s;
-            width: 54px;
-        }
-        
-        .start-circle{
-            fill: rgba(0,0,0,0);
-            stroke: white;
-            stroke-width: 5px;
-            transition: 0.2s;
-        }
-        .start-icon:hover{
-            background: rgba(255,255,255,0.15);
-        }
-        .start-icon:hover .start-circle{
-            stroke: rgb(187,134,252);
-            animation: expand 1s infinite ease;
-        }
-        @keyframes expand {
-            0%{stroke-width: 5px;}
-            50%{stroke-width: 8px;}
-            100%{stroke-width: 5px;}
-        }
-
-        .start-menu{
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 10;
-        }
-        .blurred{
-            z-index: 11;
-            animation: opac 1s forwards 1 linear;
-            background: rgba(0,0,0,0.6);
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
-        .start-content{
-            position: absolute;
-            overflow: scroll;
-            top: 20px;
-            width: 100%;
-            bottom: 50px;
-            z-index: 12;
-            color: white;
-            opacity: 0;
-            animation: rotd 0.5s 1 0.3s forwards ease;
-        }
-        .start-content::-webkit-scrollbar{
-            width: 0;
-        }
-        @keyframes rotd {
-            0%{transform: scale(0.8);opacity: 0;}
-            100%{transform: scale(1);opacity: 1;}
-        }
-        @keyframes opac{
-            from{opacity: 0;}
-            to{opacity: 1;}
-        }
-        .stroke{
-            stroke-dasharray: 2 5 5 5;
-            animation: strokeanim 1s ease infinite;
-        }
-        @keyframes strokeanim {
-            0%{transform: rotate(0);}
-            100%{transform: rotate(360deg);}
-        }
-        #start-circle{
-            margin: 0 2px;
-        }
-        .box,.right-pointer{
-            height: 100px;
-            width: 100px;
-            margin: 0.2em 0.1em;
-            cursor: default;
-            padding: 1em;
-            border: 0.1em solid rgba(255, 255, 255, 0);
-            display: inline-flex;
-            background: #1a73e8;
-            transition: 0.2s;
-            box-sizing: border-box !important;
-        }
-        .box:hover{
-            border: 0.1em solid white;
-            transform: scale(1.05);
-        }
-        .box:active{
-            transform: scale(0.95);
-        }
-        .box div,.right-pointer div{
-            width: 100%;
-        }
-        .box div center i,.right-pointer div center i{
-            font-size: 2.5em;
-        }
-        .box div center div,.right-pointer div center div{
-            margin: 0.8em 0;
-        }
-        .con-inner{
-            padding: 1.5em;
-            width: max-content;
-        }
-        .start-subhead{
-            margin: 1em 2em 0 2em;
-        }
-        @media screen and (max-width: 800px){
-            .start-subhead{
-                margin: 1em;
-            }
-            .con-inner{
-                padding: 0.5em;
-            }
-            .scroll{
-                overflow-x: scroll;
-            }
-            .scroll::-webkit-scrollbar{
-                width: 0;
-            }
-        }
-        @media screen and (min-width: 560px){
-            .right-pointer{
-                display: none !important;
-            }
-        }
-        #scroll{
-            scroll-behavior: smooth;
-        }
-    </style>
-
-    <style>
-        .none{
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./default.css" />
+    <link rel="stylesheet" href="./taskbar.css" />
+    
 </head>
 <body>
     
-    <div class="start-menu" id="startMenu">
-    <!-- <div class="start-menu none" id="startMenu"> -->
+    <!-- <div class="start-menu" id="startMenu"> -->
+    <div class="start-menu none" id="startMenu">
+
         <div class="blurred"></div>
+
         <div class="start-content">
             <div class="container">
+
                 <h1>
                     <svg height="40" width="40">
                         <circle r="10" cx="27" cy="27" stroke="white" stroke-width="5" stroke-dasharray="25 7" />
                     </svg>
                     MENU
                 </h1>
+
                 <Br>
-                
 
                 <h3 class="start-subhead">Social</h3>
-                <!-- <div class="right-pointer"><i class="fas fa-chevron-circle-right" style="z-index: 12;"></i></div> -->
+                
                 <div class="scroll" id="scroll">
                     <div class="con-inner">
+
                         <a href="https://www.facebook.com/raghav.dhingra15" class="box" style="background: #3b5998 ;">
                             <div>
                                 <center>
@@ -220,6 +44,7 @@
                                 </center>
                             </div>
                         </a>
+
                         <a href="https://twitter.com/raghavdhingra15" class="box" style="background: #00acee;">
                             <div>
                                 <center>
@@ -228,6 +53,7 @@
                                 </center>
                             </div>
                         </a>
+
                         <a href="https://github.com/raghavdhingra" class="box" style="background: #211F1F;">
                             <div>
                                 <center>
@@ -236,6 +62,7 @@
                                 </center>
                             </div>
                         </a>
+
                         <a href="https://www.instagram.com/raghav.dhingra15/" class="box" style="background: rgb(228, 64, 95);">
                             <div>
                                 <center>
@@ -244,6 +71,7 @@
                                 </center>
                             </div>
                         </a>
+
                         <a href="https://plus.google.com/108681038809854628624" class="box" style="background: rgb(221, 75, 57);">
                             <div>
                                 <center>
@@ -252,16 +80,18 @@
                                 </center>
                             </div>
                         </a>
+
                         <Br>
                             
                         <a href="mailto:raghav.dhingra15@gmail.com" class="box" style="background: rgb(220,74,61);">
                             <div>
                                 <center>
-                                    <img src="gmail.svg" width="35px" />
+                                    <img src="./assets/gmail.svg" width="35px" />
                                     <div>Gmail</div>
                                 </center>
                             </div>
                         </a>
+
                         <a href="https://codepen.io/raghav-dhingra" class="box" style="background: #AE63E4;">
                             <div>
                                 <center>
@@ -270,14 +100,16 @@
                                 </center>
                             </div>
                         </a>
+
                         <a class="right-pointer" id="scrollBtn" style="background: rgba(0,0,0,0);">
                             <div>
                                 <center>
-                                    <img src="right.svg" width="30px" />
+                                    <img src="./assets/right.svg" width="30px" />
                                     <div>Scroll</div>
                                 </center>
                             </div>
                         </a>
+
                         <a href="https://www.linkedin.com/in/raghav-dhingra-168a41168/" class="box" style="background: #0e76a8;">
                             <div>
                                 <center>
@@ -295,13 +127,15 @@
                                 </center>
                             </div>
                         </a>
+
                     </div>
                 </div>
-
-                
+    
                 <h3 class="start-subhead">Get in Touch</h3>
+
                 <div class="scroll">
                     <div class="con-inner">
+
                         <a href="mailto:raghav.dhingra15@gmail.com" style="background: #00c6ff;" class="box">
                             <div>
                                 <center>
@@ -310,6 +144,7 @@
                                 </center>
                             </div>
                         </a>
+
                         <a href="https://www.messenger.com/t/raghav.dhingra15" style="background: #0078ff;" class="box">
                             <div>
                                 <center>
@@ -318,6 +153,7 @@
                                 </center>
                             </div>
                         </a>
+
                     </div>
                 </div>
 
@@ -334,42 +170,7 @@
     </div>
 
 
-    <script>
-        var startCounter = 0;
-        const openStart = () => {
-            if (startCounter == 0) {
-                document.getElementById("startMenu").classList.remove("none");
-                document.getElementById("scrollBtn").classList.remove("none");
-                document.getElementById("start-circle").classList.add("stroke");
-                startCounter=1;
-            }
-            else{
-                document.getElementById("startMenu").classList.add("none");
-                document.getElementById("start-circle").classList.remove("stroke");
-                startCounter=0;
-            }
-        }
-
-        const keyPress = (e) => {
-            if(e.key === "Escape") {
-                document.getElementById("startMenu").classList.add("none");
-                document.getElementById("start-circle").classList.remove("stroke");
-                document.getElementById("scrollBtn").style.display='block';
-                startCounter=0;
-            }
-        }
-        document.getElementById("scroll").addEventListener("scroll",()=>{
-            document.getElementById("scrollBtn").classList.add("none");
-        });
-        document.getElementById("scrollBtn").addEventListener("click",()=>{
-            document.getElementById("scrollBtn").classList.add("none");
-            document.getElementById("scroll").scrollLeft="100";
-            setTimeout(()=>{
-                document.getElementById("scroll").scrollLeft="-100";
-            },400);
-        });
-        document.onkeydown = keyPress;
-    </script>
+    <script src="./taskbar.js"></script>
 
 </body>
 </html>
