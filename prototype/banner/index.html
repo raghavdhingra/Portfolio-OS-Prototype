@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+
+
+
+
+
+        .home-banner-overlay{
+            position: fixed;
+            overflow: scroll;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.5);
+            animation: banner-fadeIn 0.5s ease forwards 1;
+        }
+
+        @keyframes banner-fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        .home-banner{
+            overflow-y: scroll;
+            margin: 0 auto;
+            background: #fff;
+            margin: 5vh 0;
+            padding: 1em;
+            border-radius: 5px;
+        }
+
+        .home-banner::-webkit-scrollbar{
+            width: 0;
+        }
+
+        .home-banner-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .home-banner-content-right,.home-banner-content-left{
+            padding: 1em;
+        }
+
+        .home-banner-content-left{
+            text-align: center;
+        }
+
+        .home-banner-content-right{
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .home-banner-logo{
+            margin: 0 auto;
+        }
+
+        .home-banner-logo > img{
+            height: 100%;
+        }
+
+        .banner-head{
+            font-size: 3em;
+            color: rgb(78, 30, 139);
+        }
+
+        @media screen and (max-width: 992px){
+            .home-banner-grid{
+                grid-template-columns: auto;
+            }
+        }
+
+        .start-in{
+            margin: 1em 0;
+            font-size: 1.5em;
+        }
+
+        .timer{
+            border: 0.2em solid #ddd;
+            padding: 0.8em 1em;
+            border-radius: 30px;
+            /* width: 90%; */
+            font-size: 1.5em;
+            display: inline-flex;
+        }
+
+        .timer-content{
+            text-align: center;
+        }
+
+        .timer-content > div{
+            margin-bottom: 0.5em;
+        }
+
+        .timer-spacing{
+            margin: 0 1em;
+        }
+
+        #days,#hours,#minutes,#seconds{
+            color: #666;
+        }
+
+        @media screen and (max-width: 550px){
+            .timer{
+                font-size: 1em;
+            }
+        }
+
+        @media screen and (max-width: 400px){
+            .home-banner-content-left{
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        @media screen and (max-width: 370px){
+            .timer{
+                font-size: 0.85em;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <button onclick="openHomeBanner()">Open</button>
+    
+    <div class="home-banner-overlay" id="home-banner-overlay">
+        <div class="container">
+            <div class="home-banner">
+                <div style="float: right;font-size: 2em;" onclick="closeHomeBanner();"> &times; </div>
+                <Br><Br>
+                <div class="home-banner-grid">
+                    <div class="home-banner-content-left">
+                        <div class="home-banner-logo">
+                            <img src="./hackgtbit.png" />
+                        </div>
+                        <div class="banner-head">H@CK GTBIT 2.0</div>
+                        <div style="font-size: 2em;margin: 0.3em 0;color:#666;">Starts In:</div>
+                        <div class="timer">
+                            <div class="timer-content" style="color: #176bef;"> <div id="days">00</div> Days </div>
+                            <div class="timer-spacing"> </div>
+                            <div class="timer-content" style="color: #ff3e30;"> <div id="hours">00</div> Hours </div>
+                            <div class="timer-spacing"> </div>
+                            <div class="timer-content" style="color: #f7b529;"> <div id="minutes">00</div> Minutes </div>
+                            <div class="timer-spacing"> </div>
+                            <div class="timer-content" style="color: #179c52;"> <div id="seconds">00</div> Seconds </div>
+                        </div>
+
+                    </div>
+
+                    <div class="home-banner-content-right">
+                        <div>
+                            <span style="font-size: 1.5em;font-family: google-sans-bold;">HACK-GTBIT 2.0</span><Br>
+                            H@ckGTBIT 2.0 isn't just an event for us, it is, in fact, a journey that has helped us to define 
+                            ourselves, find our paths and most importantly take something from it to cherish as a team. We 
+                            aim to let this event take the form of a platform that would help the students, faculty, 
+                            participants, and sponsors interact with each other and form bonds stronger than those made on paper. 
+                            Last time we gained all of that by forming a team we could trust, who had each other's back! This year 
+                            we're back with double energy and enthusiasm to make this event an absolute success for everyone. So, 
+                            we invite all the sponsors to have trust in us and get associated with us.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+        const closeHomeBanner = () => {
+            document.getElementById("home-banner-overlay").style.display = "none";
+        }
+
+        const openHomeBanner = () => {
+            document.getElementById("home-banner-overlay").style.display = "block";
+        }
+
+    </script>
+
+</body>
+</html>
