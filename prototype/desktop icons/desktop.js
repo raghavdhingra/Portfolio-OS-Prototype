@@ -3,7 +3,9 @@ const explorer = document.getElementById("explorer");
 const explorerContent = document.getElementById("explorer-content");
 const urlBar = document.getElementById("url-bar");
 const searchBtn = document.getElementById("searchBtn");
-const iframe = document.getElementById("iframe");
+
+const iframeBrowser = document.getElementById("browser-iframe");
+const iframeProfile = document.getElementById("profile-iframe");
 
 const browserContent = document.getElementById("browser-content");
 const profileContent = document.getElementById("profile-content");
@@ -22,6 +24,10 @@ if (window.innerWidth >= 800){
         settingContent.classList.add("none");
         browserContent.classList.add("none");
         explorerTitle.innerText = "Profile";
+
+        if (iframeProfile.src == ''){
+            iframeProfile.src = `file:///C:/Users/Raghav/Desktop/projects/portfolio/prototype/profile/index.html`;
+        }
     });
 
     document.getElementById("project").addEventListener("dblclick",()=>{
@@ -52,6 +58,11 @@ if (window.innerWidth >= 800){
         projectContent.classList.add("none");
         personalContent.classList.add("none");
         settingContent.classList.add("none");
+
+        if (iframeBrowser.src == ""){
+            urlBar.value = "https://www.searchencrypt.com/";
+            iframeBrowser.src = "https://www.searchencrypt.com/";
+        }
     });
 
     document.getElementById("setting").addEventListener("dblclick",()=>{
@@ -96,6 +107,7 @@ else{
     });
 
     document.getElementById("browser").addEventListener("click",()=>{
+        iframeBrowser.src = "https://www.searchencrypt.com/";
         explorer.classList.remove("none");
         explorerTitle.innerText = "Browser";
         browserContent.classList.remove("none");
@@ -126,9 +138,9 @@ document.getElementById("minimize").addEventListener("click",()=>{
 });
 
 document.getElementById("close-explorer").addEventListener("click",()=>{
-    explorer.classList.add("none");
     explorerTitle.innerHTML = '';
     browserContent.classList.add("none");
+    explorer.classList.add("none");
 });
 
 document.getElementById("maximize").addEventListener("click",()=>{
@@ -153,15 +165,15 @@ const searchFun = () => {
     const searchUrl = "https://www.searchencrypt.com/search?eq=";
     var urlVal = urlBar.value;
     if (urlVal.substring(0,7) == 'http://' || urlVal.substring(0,8) == 'https://'){
-        iframe.src=`${urlVal}`;
+        iframeBrowser.src=`${urlVal}`;
         setTimeout(() => {
-            urlBar.value = iframe.src;
+            urlBar.value = iframeBrowser.src;
         }, 500);
     }
     else {
-        iframe.src=`${searchUrl}${urlVal}`;
+        iframeBrowser.src=`${searchUrl}${urlVal}`;
         setTimeout(() => {
-            urlBar.value = iframe.src;
+            urlBar.value = iframeBrowser.src;
         }, 500);
     }
 }
